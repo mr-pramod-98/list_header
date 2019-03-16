@@ -4,21 +4,29 @@ struct list
 	struct list *next;
 }; 
 
-(struct list)* add_rear(struct list *head,const void *data)
+struct list* add_rear(struct list *head,const void *data)
 {
 	struct list *temp,*node;
-	temp = head;
-	node = (struct list*)malloc(sizeof(struct list));
-	memcopy(temp->data,data);
-	while(temp->next != NULL)
+	if(head == NULL)
 	{
-		temp = temp->next;
+		head = (struct list*)malloc(sizeof(struct list));
+		memcopy(head->data,data);
+	}
+	else
+	{	
+		temp = head;
+		node = (struct list*)malloc(sizeof(struct list));
+		memcopy(node->data,data);
+		while(temp->next != NULL)
+		{
+			temp = temp->next;
+		}	
+		temp->next = node;
 	}	
-	temp->next = node;
 	return head;	
 }
 
-(struct list)* del_rear(struct list *head)
+struct list* del_rear(struct list *head)
 {
 	struct list *temp1,*temp2;
 	temp1 = head;
@@ -33,7 +41,7 @@ struct list
 	return head;
 }
 
-(struct list)* display(struct list *head)
+struct list* display(struct list *head)
 {
 	struct list *temp;
 	temp = head;
