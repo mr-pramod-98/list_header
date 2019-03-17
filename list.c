@@ -40,15 +40,3 @@ struct list* del_rear(struct list *head)
 	free(temp1);
 	return head;
 }
-
-struct list* display(struct list *head)
-{
-	struct list *temp;
-	temp = head;
-	if(head->next == NULL)
-	{
-		return NULL;
-	}
-	else
-{
-}
