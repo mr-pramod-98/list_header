@@ -1,4 +1,9 @@
 #include<stdio.h>
+struct list
+{
+	int data;
+	struct list *next;
+}; 
 
 struct list* display(struct list *head)
 {
@@ -12,7 +17,7 @@ struct list* display(struct list *head)
      {
          while(temp == NULL)
          {
-             printf("%c\n",temp->data);
+             printf("%d\n",temp->data);
              temp = temp->next;
          }	
      }
