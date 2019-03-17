@@ -26,7 +26,7 @@ struct list* display(struct list *head)
 void main()
 {
  int data[3] = {12,34,5};
- const void * head = NULL; 
+ struct list * head = NULL; 
  for(i = 0;i < 3; i++)
        head = add_rear(head,data[i]);
  head = display(head);
