@@ -8,7 +8,7 @@ void main()
  int i;
  struct list * head = NULL; 
  for(i = 0;i < 3; i++)
-       head = add_rear(head,data[i]);
+       head = add_rear(head,data[i],sizeof(int));
  head = display(head);
  if(head==NULL)
        printf("no elements");
