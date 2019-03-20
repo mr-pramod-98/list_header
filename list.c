@@ -1,22 +1,26 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
 struct list
 {
 	void *data;
 	struct list *next;
 }; 
 
-struct list* add_rear(struct list *head,const void *data)
+struct list* add_rear(struct list *head, const void *data, int size)
 {
 	struct list *temp,*node;
 	if(head == NULL)
 	{
 		head = (struct list*)malloc(sizeof(struct list));
-		memcopy(head->data,data);
+		memcpy (head->data, data, size);;
 	}
 	else
 	{	
 		temp = head;
 		node = (struct list*)malloc(sizeof(struct list));
-		memcopy(node->data,data);
+		memcpy (node->data,data, size);
 		while(temp->next != NULL)
 		{
 			temp = temp->next;
