@@ -14,13 +14,14 @@ struct list* add_rear(struct list *head, const void *data, int size)
 	if(head == NULL)
 	{
 		head = (struct list*)malloc(sizeof(struct list));
-		memcpy (head->data, data, size);;
+		memcpy(&(head->data), data, size);
+		head->next = NULL;
 	}
 	else
 	{	
 		temp = head;
 		node = (struct list*)malloc(sizeof(struct list));
-		memcpy (node->data,data, size);
+		memcpy (&(node->data),data, size);
 		while(temp->next != NULL)
 		{
 			temp = temp->next;
@@ -41,11 +42,12 @@ struct list* display(struct list *head)
      }
      else
      {
-         while(temp == NULL)
+         while(temp != NULL)
          {
-	     data = (int)temp->data;
+	     data = *(int*)(&(temp->data));
              printf("%d\n",data);
              temp = temp->next;
-         }	
+         }
+	 return head;	
      }
 }
