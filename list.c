@@ -31,14 +31,14 @@ struct list* add_rear(struct list *head, const void *data, int size)
 	return head;	
 }
 
-struct list* display(struct list *head)
+int display(struct list *head)
 {
      struct list *temp;
      int data;	
      temp = head;
      if(head->next == NULL)
      {
-         return NULL;
+         return 0;
      }
      else
      {
@@ -48,6 +48,6 @@ struct list* display(struct list *head)
              printf("%d\n",data);
              temp = temp->next;
          }
-	 return head;	
+	 return 1;	
      }
 }
