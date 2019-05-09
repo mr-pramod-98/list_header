@@ -1,11 +1,16 @@
-output: main.o list.o
-	gcc main.o list.o -o output
+UNITY_ROOT=../..
 
-main.o: main.c list.h
-	gcc -c main.c
+output: TestList.o unity.o list.o 
+	gcc TestList.o unity.o list.o -o output
 
-list.o: list.c list.h
-	gcc -c list.c
+TestList.o: test/TestList.c src/list.h
+	gcc -g -c -Itest -I. test/TestList.c
+
+list.o: src/list.c src/list.h
+	gcc -g -c -Isrc -I. src/list.c
+
+unity.o: 
+	gcc -g -c -I. $(UNITY_ROOT)/src/unity.c
 
 clear:
 	rm -f *.o
