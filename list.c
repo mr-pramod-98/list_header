@@ -13,7 +13,7 @@ struct list* add_rear(struct list *head, const void *data, int size)
 	struct list *temp,*node;
 	if(head == NULL)
 	{
-		head = (struct list*)malloc(sizeof(struct list));
+		head = (struct list*)malloc(sizeof(size) + sizeof(temp));
 		memcpy(&(head->data), data, size);
 		head->next = NULL;
 	}
